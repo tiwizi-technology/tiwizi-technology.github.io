@@ -1,4 +1,3 @@
-# tiwizi-technology.github.io
 ## What is Tiwizi ?
 Tiwizi is a traditional Amazigh principle of collective solidarity and mutual aid. It refers to a form of voluntary cooperation where members of a community work together to help one another, without financial compensation. Tiwizi is based on the idea that community strength comes from cooperation, not individualism.
 ## How Tiwizi Works
