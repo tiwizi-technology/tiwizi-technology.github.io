@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasiw amaziɣ - asekkil alatini</title>
+    <link rel="icon" type="image/x-icon" href="/anasiw/images/favicon.ico">
+    <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="styles/anasiw.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100" onload="focusTextarea()">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <img src="/anasiw/images/logo.png" alt="logo" width="25" height="25">
+                    <span><b>Anasiw</b></span>
+                </a>
+                <a href="https://github.com/amazigh-software/anasiw"
+                    class="ms-auto me-3 d-flex align-items-center text-dark fs-4" target="_blank"
+                    aria-label="Source code on GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-3 mt-md-5">
+
+        <section class="row">
+            <!-- ZONE PRINCIPALE -->
+            <section class="col-md-8">
+
+                <!-- Zone de saisie -->
+                <section class="mb-2">
+                    <!-- Barre au-dessus du textarea -->
+                    <div
+                        class="d-flex align-items-center justify-content-between mb-2 px-2 py-1 border border-secondary rounded">
+
+                        <!-- Groupe de gauche : Couper + Copier -->
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-sm btn-outline" onclick="cutText()" aria-label="Nkeḍ">
+                                <i class="bi bi-scissors"></i>
+                                Nkeḍ
+                            </button>
+
+                            <button type="button" class="btn btn-sm btn-outline" onclick="copyText()"
+                                aria-label="Zezder">
+                                <i class="bi bi-copy"></i>
+                                Zezder
+                            </button>
+                        </div>
+
+                        <!-- Bouton de droite : Effacer -->
+                        <button type="button" class="btn btn-sm btn-outline" onclick="clearText()" aria-label="Sfeḍ">
+                            <i class="bi bi-trash"></i>
+                            Sfeḍ
+                        </button>
+
+                    </div>
+
+                    <!-- Textarea -->
+                    <textarea id="tirra" class="form-control" rows="5" onkeyup="shortcut()"
+                        placeholder="Uru ayenna trid da..."></textarea>
+                </section>
+
+
+                <!-- Clavier de caractères -->
+                <section class="mb-2">
+                    <div class="char-grid" id="charKeyboard">
+                        <!-- Ligne 1 : MAJUSCULES -->
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Č">Č</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ḍ">Ḍ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ǧ">Ǧ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ḥ">Ḥ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ṛ">Ṛ</button>
+
+                        <!-- Ligne 2 : minuscules -->
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="č">č</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ḍ">ḍ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ǧ">ǧ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ḥ">ḥ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ṛ">ṛ</button>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="char-grid" id="charKeyboard1">
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ṣ">Ṣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ṭ">Ṭ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ẓ">Ẓ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Γ">Γ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="Ɛ">Ɛ</button>
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ṣ">ṣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ṭ">ṭ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ẓ">ẓ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ɣ">ɣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ɛ">ɛ</button>
+                    </div>
+                </section>
+
+                <h1 class="h4">Taɣara n usemres</h1>
+
+                <!-- ROW REQUIRED HERE -->
+                <section class="row">
+                    <section class="col-6 col-md-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asanef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>č</td>
+                                    <td>c=</td>
+                                </tr>
+                                <tr>
+                                    <td>ḍ</td>
+                                    <td>d=</td>
+                                </tr>
+                                <tr>
+                                    <td>ǧ</td>
+                                    <td>g=</td>
+                                </tr>
+                                <tr>
+                                    <td>ḥ</td>
+                                    <td>h=</td>
+                                </tr>
+                                <tr>
+                                    <td>ṛ</td>
+                                    <td>r=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="col-6 col-md-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asanef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Č</td>
+                                    <td>C=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ḍ</td>
+                                    <td>D=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ǧ</td>
+                                    <td>G=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ḥ</td>
+                                    <td>H=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ṛ</td>
+                                    <td>R=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="col-6 col-md-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asanef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ṣ</td>
+                                    <td>s=</td>
+                                </tr>
+                                <tr>
+                                    <td>ṭ</td>
+                                    <td>t=</td>
+                                </tr>
+                                <tr>
+                                    <td>ẓ</td>
+                                    <td>z=</td>
+                                </tr>
+                                <tr>
+                                    <td>ɣ</td>
+                                    <td>y=</td>
+                                </tr>
+                                <tr>
+                                    <td>ɛ</td>
+                                    <td>e=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="col-6 col-md-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asanef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ṣ</td>
+                                    <td>S=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ṭ</td>
+                                    <td>T=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ẓ</td>
+                                    <td>Z=</td>
+                                </tr>
+                                <tr>
+                                    <td>Γ</td>
+                                    <td>Y=</td>
+                                </tr>
+                                <tr>
+                                    <td>Ɛ</td>
+                                    <td>E=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+            <!-- ASIDE -->
+            <aside class="col-md-4">
+                <div class="bg-light p-2 rounded">
+                    <h3 class="h5">Γef ubatu</h3>
+                    <p>Anasiw iga abecku yeldin seg internet n tirra n tutlayt tamaziɣt s usekkil alatini. Ad
+                        kwen-iɛawen, ad tsekwjemm isekkilen n tmaziɣt g uselkim neɣ tiliɣri.
+                    </p>
+                </div>
+                </br>
+                <h3 class="h5">Agemmay</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Asekkil</th>
+                            <th scope="col">Amedya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>č / Č</td>
+                            <td>Ičča (He ate)</td>
+                        </tr>
+                        <tr>
+                            <td>ḍ / Ḍ</td>
+                            <td>Iḍan (Nights)</td>
+                        </tr>
+                        <tr>
+                            <td>ḥ / Ḥ</td>
+                            <td>Ḥewwa (Eve)</td>
+                        </tr>
+                        <tr>
+                            <td>ğ / Ğ</td>
+                            <td>Ur ğğin (Never)</td>
+                        </tr>
+                        <tr>
+                            <td>ɣ / Γ</td>
+                            <td>Γef (On)</td>
+                        </tr>
+                        <tr>
+                            <td>ṛ / Ṛ</td>
+                            <td>Beṛṛa (Out)</td>
+                        </tr>
+                        <tr>
+                            <td>ṣ / Ṣ</td>
+                            <td>Ṣinṣeg (Whistle)</td>
+                        </tr>
+                        <tr>
+                            <td>ṭ / Ṭ</td>
+                            <td>Tiṭ (Eye)</td>
+                        </tr>
+                        <tr>
+                            <td>ẓ / Ẓ</td>
+                            <td>Aẓawan (Music)</td>
+                        </tr>
+                        <tr>
+                            <td>ε / Ɛ</td>
+                            <td>Ɛli (Ali)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+        </section>
+    </main>
+
+
+    <div class="toast-container position-fixed start-50 translate-middle-x p-3"
+        style="top: env(safe-area-inset-top, 0); z-index: 1100;">
+
+        <div id="copyToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+
+            <div class="d-flex">
+                <div class="toast-body">
+                    ✔ Texte copié dans le presse-papiers
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer class="bg-light py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Tiwizi Tech</p>
+        </div>
+    </footer>
+
+    <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="scripts/anasiw.js"></script>
+</body>
+
+</html>
