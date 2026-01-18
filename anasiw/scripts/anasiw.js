@@ -33,24 +33,52 @@ keyboards.forEach(keyboard => {
         if (!char) return;
 
         textarea.focus();
-        textarea.value += char;
+
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+
+        textarea.value =
+            textarea.value.slice(0, start) +
+            char +
+            textarea.value.slice(end);
+
+        const newPos = start + char.length;
+        textarea.selectionStart = textarea.selectionEnd = newPos;
     });
 });
 
 
+
 // === Shortcut replacement ===
 function shortcut() {
-    const value = textarea.value;
-    if (value.length < 2) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
 
-    const last = value.at(-1);
-    const prev = value.at(-2);
+    // on travaille sur le texte AVANT le curseur
+    if (start < 2) return;
+
+    const before = textarea.value.slice(0, start);
+    const after = textarea.value.slice(end);
+
+    const last = before.at(-1);
+    const prev = before.at(-2);
 
     if (last === "=" && directMap[prev]) {
+        const replacement = directMap[prev];
+
         textarea.value =
-            value.slice(0, -2) + directMap[prev];
+            before.slice(0, -2) +
+            replacement +
+            after;
+
+        const newPos =
+            start - 2 + replacement.length;
+
+        textarea.selectionStart =
+            textarea.selectionEnd = newPos;
     }
 }
+
 
 // === Clipboard ===
 function copyText() {
