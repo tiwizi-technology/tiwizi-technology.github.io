@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ⴰⵏⴰⵙⵉⵡ ⴰⵎⴰⵣⵉⵖ - ⴰⵙⴻⴽⴽⵉⵍ ⵜⵉⴼⵉⵏⴰⵖ</title>
+    <link rel="icon" type="image/x-icon" href="/anasiw/images/favicon.ico">
+    <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="styles/anasiw.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100" onload="focusTextarea()">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <img src="images/logo.png" alt="logo" width="25" height="25">
+                    <span><b>ⴰⵏⴰⵙⵉⵡ</b></span>
+                </a>
+                <a href="https://github.com/tiwizi-technology/anasiw-web"
+                    class="ms-auto me-3 d-flex align-items-center text-dark fs-4" target="_blank"
+                    aria-label="Source code on GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-3 mt-md-5">
+
+        <section class="row">
+            <!-- ZONE PRINCIPALE -->
+            <section class="col-md-8">
+
+                <!-- Zone de saisie -->
+                <section class="mb-2">
+                    <!-- Barre au-dessus du textarea -->
+                    <div
+                        class="d-flex align-items-center justify-content-between mb-2 px-2 py-1 border border-secondary rounded">
+
+                        <!-- Groupe de gauche : Couper + Copier -->
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-sm btn-outline" onclick="cutText()" aria-label="ⵏⴽⴻⴹ">
+                                <i class="bi bi-scissors"></i>
+                                ⵏⴽⴻⴹ
+                            </button>
+
+                            <button type="button" class="btn btn-sm btn-outline" onclick="copyText()"
+                                aria-label="ⵣⴻⵣⴷⴻⵔ">
+                                <i class="bi bi-copy"></i>
+                                ⵣⴻⵣⴷⴻⵔ
+                            </button>
+                        </div>
+
+                        <!-- Bouton de droite : Effacer -->
+                        <button type="button" class="btn btn-sm btn-outline" onclick="clearText()" aria-label="ⵙⴼⴻⴹ">
+                            <i class="bi bi-trash"></i>
+                            ⵙⴼⴻⴹ
+                        </button>
+
+                    </div>
+
+                    <!-- Textarea -->
+                    <textarea id="tirra" class="form-control" rows="5" onkeyup="shortcut()"
+                        placeholder="Uru ayenna trid da..."></textarea>
+                </section>
+
+
+                <!-- Clavier de caractères -->
+                <section class="mb-2">
+                    <div class="char-grid1" id="charKeyboard">
+                        <!-- Ligne 1 : MAJUSCULES -->
+                        <span class="text-center d-block">a</span>
+                        <span class="text-center d-block">b</span>
+                        <span class="text-center d-block">c</span>
+                        <span class="text-center d-block">č</span>
+                        <span class="text-center d-block">d</span>
+                        <span class="text-center d-block">ḍ</span>
+                        <span class="text-center d-block">e</span>
+                        <span class="text-center d-block">f</span>
+                        <span class="text-center d-block">g</span>
+                        <span class="text-center d-block">h</span>
+                        <span class="text-center d-block">ḥ</span>
+
+
+                        <!-- Ligne 2 : minuscules -->
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴰ">ⴰ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴱ">ⴱ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵛ">ⵛ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵞ">ⵞ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴷ">ⴷ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴹ">ⴹ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴻ">ⴻ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴼ">ⴼ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴳ">ⴳ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵀ">ⵀ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵃ">ⵃ</button>
+                    </div>
+                </section>
+                <section class="mb-2">
+                    <div class="char-grid1" id="charKeyboard1">
+                        <span class="text-center d-block">i</span>
+                        <span class="text-center d-block">j</span>
+                        <span class="text-center d-block">k</span>
+                        <span class="text-center d-block">l</span>
+                        <span class="text-center d-block">m</span>
+                        <span class="text-center d-block">n</span>
+                        <span class="text-center d-block">p</span>
+                        <span class="text-center d-block">q</span>
+                        <span class="text-center d-block">r</span>
+                        <span class="text-center d-block">ṛ</span>
+                        <span class="text-center d-block">s</span>
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵉ">ⵉ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵊ">ⵊ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⴽ">ⴽ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵍ">ⵍ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵎ">ⵎ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵏ">ⵏ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵒ">ⵒ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵇ">ⵇ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵔ">ⵔ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵕ">ⵕ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵙ">ⵙ</button>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="char-grid1" id="charKeyboard1">
+                        <span class="text-center d-block">ṣ</span>
+                        <span class="text-center d-block">t</span>
+                        <span class="text-center d-block">ṭ</span>
+                        <span class="text-center d-block">u</span>
+                        <span class="text-center d-block">w</span>
+                        <span class="text-center d-block">x</span>
+                        <span class="text-center d-block">y</span>
+                        <span class="text-center d-block">z</span>
+                        <span class="text-center d-block">ẓ</span>
+                        <span class="text-center d-block">ɛ</span>
+                        <span class="text-center d-block">ɣ</span>
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵚ">ⵚ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵜ">ⵜ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵟ">ⵟ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵓ">ⵓ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵡ">ⵡ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵅ">ⵅ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵢ">ⵢ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵣ">ⵣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵥ">ⵥ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵄ">ⵄ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-amazigh"
+                            data-char="ⵖ">ⵖ</button>
+                    </div>
+                </section>
+                <h1 class="h4">ⵜⴰⵖⴰⵔⴰ ⵏ ⵓⵙⴻⵎⵔⴻⵙ</h1>
+
+                <!-- ROW REQUIRED HERE -->
+                <section class="row">
+                    <section class="col-8 col-md-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ⴰⵙⴻⴽⴽⵉⵍ</th>
+                                    <th scope="col">ⴰⵙⴰⵏⴻⴼ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ⵞ</td>
+                                    <td>ⵛ=</td>
+                                </tr>
+                                <tr>
+                                    <td>ⴹ</td>
+                                    <td>ⴷ=</td>
+                                </tr>
+                                <tr>
+                                    <td>ⵃ</td>
+                                    <td>ⵀ=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="col-8 col-md-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ⴰⵙⴻⴽⴽⵉⵍ</th>
+                                    <th scope="col">ⴰⵙⴰⵏⴻⴼ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ⵕ</td>
+                                    <td>ⵔ=</td>
+                                </tr>
+                                <tr>
+                                    <td>ⵚ</td>
+                                    <td>ⵙ=</td>
+                                </tr>
+                                <tr>
+                                    <td>ⵟ</td>
+                                    <td>ⵜ=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="col-8 col-md-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ⴰⵙⴻⴽⴽⵉⵍ</th>
+                                    <th scope="col">ⴰⵙⴰⵏⴻⴼ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ⵥ</td>
+                                    <td>ⵣ=</td>
+                                </tr>
+                                <tr>
+                                    <td>ⵖ</td>
+                                    <td>ɣ</td>
+                                </tr>
+                                <tr>
+                                    <td>ⵄ</td>
+                                    <td>ɛ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+            <!-- ASIDE -->
+            <aside class="col-md-4">
+                <div class="bg-light p-2 rounded">
+                    <h3 class="h5">ⵖⴻⴼ ⵓⴱⴰⵜⵓ</h3>
+                    <p>ⴰⵏⴰⵙⵉⵡ ⵉⴳⴰ ⴰⴱⴻⵛⴽⵓ ⵢⴻⵍⴷⵉⵏ ⵙⴻⴳ ⵉⵏⵜⴻⵔⵍⴻⵜ ⵏ ⵜⵉⵔⵔⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵜⴰⵎⴰⵣⵉⵖⵜ ⵙ ⵓⵙⴻⴽⴽⵉⵍ ⴰⵍⴰⵜⵉⵏⵉ.
+                        ⴰⴷ ⴽⵡⴻⵏ ⵉⵄⴰⵡⴰⵏ ⴰⴷ ⵜⵙⴻⴽⵡⵊⴻⵎⵎ ⵉⵙⴻⴽⴽⵉⵍⴻⵏ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ ⴳ ⵓⵙⴻⵍⴽⵉⵎ ⵏⴻⵖ ⵜⵉⵍⵉⵖⵔⵉ.
+                    </p>
+                </div>
+                </br>
+                <h3 class="h5">ⵉⵙⴻⴽⴽⵉⵍⴻⵏ</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ⴰⵙⴻⴽⴽⵉⵍ</th>
+                            <th scope="col">ⴰⵎⴻⴷⵢⴰ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>č / ⵞ</td>
+                            <td>ⵉⵞⵞⴰ (He ate)</td>
+                        </tr>
+                        <tr>
+                            <td>ḍ / ⴹ</td>
+                            <td>ⵉⴹⴰⵏ (Nights)</td>
+                        </tr>
+                        <tr>
+                            <td>ḥ / ⵃ</td>
+                            <td>ⵃⴻⵡⵡⴰ (Eve)</td>
+                        </tr>
+                        <tr>
+                            <td>ɣ / ⵖ</td>
+                            <td>ⵖⴻⴼ (On)</td>
+                        </tr>
+                        <tr>
+                            <td>ṛ / ⵕ</td>
+                            <td>ⴱⴻⵕⵕⴰ (Out)</td>
+                        </tr>
+                        <tr>
+                            <td>ṣ / ⵚ</td>
+                            <td>ⵚⵉⵏⵚⴻⴳ (Whistle)</td>
+                        </tr>
+                        <tr>
+                            <td>ṭ / ⵟ</td>
+                            <td>ⵜⵉⵟ (Eye)</td>
+                        </tr>
+                        <tr>
+                            <td>ẓ / ⵥ</td>
+                            <td>ⴰⵣⴰⵡⴰⵏ (Music)</td>
+                        </tr>
+                        <tr>
+                            <td>ε / ⵄ</td>
+                            <td>ⵄⵍⵉ (Ali)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+        </section>
+    </main>
+
+
+    <div class="toast-container position-fixed start-50 translate-middle-x p-3"
+        style="top: env(safe-area-inset-top, 0); z-index: 1100;">
+
+        <div id="copyToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+
+            <div class="d-flex">
+                <div class="toast-body">
+                    ✔ Texte copié dans le presse-papiers
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer class="bg-light py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Tiwizi Technology</p>
+        </div>
+    </footer>
+
+    <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="scripts/anasiw.js"></script>
+</body>
+
+</html>
