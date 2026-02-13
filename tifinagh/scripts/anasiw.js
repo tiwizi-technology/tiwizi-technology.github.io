@@ -9,7 +9,9 @@ const directMap = {
     ⵀ: "ⵃ",
     ⵙ: "ⵚ",
     ⵜ: "ⵟ",
-    ⵣ: "ⵥ"
+    ⵣ: "ⵥ",
+    ⴻ: "ⵄ",
+    ⵢ: "ⵖ"
 };
 
 const mapTifinagh = {
