@@ -6,7 +6,13 @@
 
 .char-grid1 {
     display: grid;
-    grid-template-columns: repeat(11, auto);
+    grid-template-columns: repeat(9, auto);
+    gap: 0.5rem;
+}
+
+.char-grid2 {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
     gap: 0.5rem;
 }
 
