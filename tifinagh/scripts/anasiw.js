@@ -1,6 +1,6 @@
 // === Cache DOM elements ===
 const textarea = document.getElementById("tirra");
-const keyboards = document.querySelectorAll("#charKeyboard, #charKeyboard1");
+const keyboards = document.querySelectorAll("#charKeyboard, #charKeyboard1", "#charKeyboard2", "#charKeyboard3");
 
 // === Mapping direct mode ===
 const directMap = {
